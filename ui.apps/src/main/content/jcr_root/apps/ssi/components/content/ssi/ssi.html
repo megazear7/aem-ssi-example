@@ -1,0 +1,11 @@
+<sly data-sly-use.ssi="aemexamples.core.models.SSIModel"></sly>
+
+<sly data-sly-test="${! wcmmode.disabled || ssi.renderComponent}">
+  <p>NOT CACHED: ${ssi.randomNumber}</p>
+  <sly data-sly-resource="${ @ path='par', resourceType='wcm/foundation/components/parsys'}"></sly>
+</sly>
+
+<sly data-sly-test="${wcmmode.disabled && ! ssi.renderComponent}">
+  <p>CACHED: ${ssi.randomNumber}</p>
+  <!--#include virtual="${ssi.ssiIncludePath}" -->
+</sly>
